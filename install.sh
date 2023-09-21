@@ -64,7 +64,7 @@ ansible-galaxy install -r /home/kali/requirements.yml
 ansible-playbook "$playbook_file"
 
 # Install additional packages (adjust package names as needed)
-apt-get install feroxbuster gobuster peass jq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin eyewtiness gdb cupp gdb pipx evolution dbeaver xxd chromium xclip neo4j bloodhound hexedit golang-go kleopatra rlwrap open-vm-tools-desktop kali-linux-core kali-linux-firmware kali-desktop-xfc kali-linux-default python3-poetry -y
+apt-get install feroxbuster gobuster xbuild peass jq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin eyewtiness gdb cupp gdb pipx evolution dbeaver xxd chromium xclip neo4j bloodhound hexedit golang-go kleopatra rlwrap open-vm-tools-desktop kali-linux-core kali-linux-firmware kali-desktop-xfc kali-linux-default python3-poetry -y
 
 cd /opt/
 # Other Tools
@@ -95,7 +95,22 @@ git clone https://github.com/TheRook/subbrute.git
 git clone https://github.com/urbanadventurer/username-anarchy.git
 git clone https://github.com/s0md3v/XSStrike.git
 git clone https://github.com/enjoiz/XXEinjector.git
-
+git clone https://github.com/adrecon/ADRecon.git
+git clone https://github.com/BloodHoundAD/SharpHound.git
+cd SharpHound && xbuild Sharphound.sln
+cd /opt
+git clone https://github.com/ParrotSec/mimikatz.git
+git clone https://github.com/Kevin-Robertson/Invoke-TheHash.git
+git clone https://github.com/Group3r/Group3r.git
+git clone https://github.com/Kevin-Robertson/Inveigh.git
+xbuild Inveigh/Inveigh.sln
+git clone https://github.com/ohpe/juicy-potato.git && xbuild juicy-potato/JuicyPotato/JuicyPotato.sln
+git clone https://github.com/antonioCoco/RoguePotato.git && xbuild RoguePotato/RoguePotato.sln
+git clone https://github.com/PowerShellMafia/PowerSploit.git && xbuild PowerSploit/PowerSploit.sln
+git clone https://github.com/itm4n/PrintSpoofer.git && xbuild PrintSpoofer/PrintSpoofer.sln
+git clone https://github.com/GhostPack/Rubeus.git && xbuild Rubeus/Rubeus.sln
+git clone https://github.com/Arvanaghi/SessionGopher.git
+git clone https://github.com/SnaffCon/Snaffler.git && xbuild Snaffler/UltraSnaffler.sln && xbuild Snaffler/Snaffler.sln
 
 
 
