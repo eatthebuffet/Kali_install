@@ -112,8 +112,7 @@ git clone https://github.com/GhostPack/Rubeus.git && xbuild Rubeus/Rubeus.sln
 git clone https://github.com/Arvanaghi/SessionGopher.git
 git clone https://github.com/SnaffCon/Snaffler.git && xbuild Snaffler/UltraSnaffler.sln && xbuild Snaffler/Snaffler.sln
 
-
-
+echo "Install Complete"
 
 
 
