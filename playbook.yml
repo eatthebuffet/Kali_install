@@ -1,4 +1,4 @@
-- name: "Customizing Parrot"
+- name: "Customizing Kali"
   hosts: localhost
   connection: local
       users:
