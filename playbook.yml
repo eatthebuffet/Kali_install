@@ -1,0 +1,10 @@
+- name: "Customizing Parrot"
+  hosts: localhost
+  connection: local
+      users:
+        - username: "kali: 
+          visual_studio_code_extensions:
+            - streetsidesoftware.code-spell-checker
+            - ms-python.python
+            - DEVSENSE.phptools-vscode
+            - snyk-security.snyk-vulnerability-scanner
