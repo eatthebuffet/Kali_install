@@ -4,4 +4,5 @@ Run these commands:
 ```
 apt install ansible
 ansible-galaxy init install-tools
+ansible-playbook playbook.yml
 ```
