@@ -1,6 +1,6 @@
 ---
 - import_playbook: tmux.yml
 - import_playbook: git.yml
-- import_playbook: apt.yml
 - import_playbook: docker.yml
+- import_playbook: apt.yml
 - import_playbook: vs_code.yml
