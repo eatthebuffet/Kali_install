@@ -172,3 +172,9 @@
       git:
         repo: https://github.com/int0x33/nc.exe.git
         dest: /opt/nc.exe
+
+    - name: Copy files from foo to bar
+        copy: remote_src=True src=./Kali_install/windows/ dest=/opt/windows/
+    - name: Remove old files foo
+        file: path=./Kali_Install/windows/ state=absent
+        
