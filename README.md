@@ -3,8 +3,7 @@
 Run these commands:
 ```
 apt install ansible
-ansible-galaxy init install-tools
-ansible-playbook playbook.yml
+ansible-playbook main.yml
 ```
 
 https://www.kali.org/docs/containers/installing-docker-on-kali/
