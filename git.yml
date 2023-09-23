@@ -1,0 +1,188 @@
+---
+- name: Clone and Build GitHub Repositories
+  hosts: localhost
+  become: yes  # Use 'become' to run commands with sudo
+  tasks:
+    - name: Clone Certify repository
+      git:
+        repo: https://github.com/GhostPack/Certify.git
+        dest: /opt/Certify
+
+    - name: Clone Certipy repository
+      git:
+        repo: https://github.com/ly4k/Certipy.git
+        dest: /opt/Certipy
+
+    - name: Clone Bashfuscator repository
+      git:
+        repo: https://github.com/Bashfuscator/Bashfuscator.git
+        dest: /opt/Bashfuscator
+
+    - name: Clone Chisel repository
+      git:
+        repo: https://github.com/jpillora/chisel.git
+        dest: /opt/chisel
+
+    - name: Clone Dirhunt repository
+      git:
+        repo: https://github.com/Nekmo/dirhunt.git
+        dest: /opt/dirhunt
+
+    - name: Install Dirhunt using pip3
+      pip:
+        name: dirhunt
+        state: present
+      args:
+        executable: /usr/bin/pip3
+      become: yes
+      become_user: root
+      environment:
+        PATH: "{{ ansible_env.PATH }}"
+
+    - name: Clone DonPAPI repository
+      git:
+        repo: https://github.com/login-securite/DonPAPI.git
+        dest: /opt/DonPAPI
+
+    - name: Clone EyeWitness repository
+      git:
+        repo: https://github.com/RedSiege/EyeWitness.git
+        dest: /opt/EyeWitness
+
+    - name: Clone Aquatone repository
+      git:
+        repo: https://github.com/michenriksen/aquatone.git
+        dest: /opt/aquatone
+
+    - name: Clone Ligolo-ng repository
+      git:
+        repo: https://github.com/nicocha30/ligolo-ng.git
+        dest: /opt/ligolo-ng
+
+    - name: Build Ligolo-ng agent
+      command: go build -o /opt/ligolo-ng/agent /opt/ligolo-ng/cmd/agent/main.go
+      args:
+        chdir: /opt/ligolo-ng
+
+    - name: Build Ligolo-ng proxy
+      command: go build -o /opt/ligolo-ng/proxy /opt/ligolo-ng/cmd/proxy/main.go
+      args:
+        chdir: /opt/ligolo-ng
+
+    - name: Clone Linikatz repository
+      git:
+        repo: https://github.com/CiscoCXSecurity/linikatz.git
+        dest: /opt/linikatz
+
+    - name: Clone Logrotten repository
+      git:
+        repo: https://github.com/whotwagner/logrotten.git
+        dest: /opt/logrotten
+
+    - name: Clone noPac repository
+      git:
+        repo: https://github.com/Ridter/noPac.git
+        dest: /opt/noPac
+
+    - name: Clone pspy repository
+      git:
+        repo: https://github.com/DominicBreuker/pspy.git
+        dest: /opt/pspy
+
+    - name: Clone pypykatz repository
+      git:
+        repo: https://github.com/skelsec/pypykatz.git
+        dest: /opt/pypykatz
+
+    - name: Clone statistically-likely-usernames repository
+      git:
+        repo: https://github.com/insidetrust/statistically-likely-usernames.git
+        dest: /opt/statistically-likely-usernames
+
+    - name: Clone subbrute repository
+      git:
+        repo: https://github.com/TheRook/subbrute.git
+        dest: /opt/subbrute
+
+    - name: Clone username-anarchy repository
+      git:
+        repo: https://github.com/urbanadventurer/username-anarchy.git
+        dest: /opt/username-anarchy
+
+    - name: Clone XSStrike repository
+      git:
+        repo: https://github.com/s0md3v/XSStrike.git
+        dest: /opt/XSStrike
+
+    - name: Clone XXEinjector repository
+      git:
+        repo: https://github.com/enjoiz/XXEinjector.git
+        dest: /opt/XXEinjector
+
+    - name: Clone ADRecon repository
+      git:
+        repo: https://github.com/adrecon/ADRecon.git
+        dest: /opt/ADRecon
+
+    - name: Clone SharpHound repository
+      git:
+        repo: https://github.com/BloodHoundAD/SharpHound.git
+        dest: /opt/SharpHound
+
+    - name: Build SharpHound
+      command: xbuild /opt/SharpHound/Sharphound.sln
+      args:
+        chdir: /opt/SharpHound
+
+    - name: Clone mimikatz repository
+      git:
+        repo: https://github.com/ParrotSec/mimikatz.git
+        dest: /opt/mimikatz
+
+    - name: Clone Invoke-TheHash repository
+      git:
+        repo: https://github.com/Kevin-Robertson/Invoke-TheHash.git
+        dest: /opt/Invoke-TheHash
+
+    - name: Clone Group3r repository
+      git:
+        repo: https://github.com/Group3r/Group3r.git
+        dest: /opt/Group3r
+
+    - name: Clone Inveigh repository
+      git:
+        repo: https://github.com/Kevin-Robertson/Inveigh.git
+        dest: /opt/Inveigh
+
+    - name: Build Inveigh
+      command: xbuild /opt/Inveigh/Inveigh.sln
+      args:
+        chdir: /opt/Inveigh
+
+    - name: Clone Juicy-Potato repository
+      git:
+        repo: https://github.com/ohpe/juicy-potato.git
+        dest: /opt/juicy-potato
+
+    - name: Build Juicy-Potato
+      command: xbuild /opt/juicy-potato/JuicyPotato/JuicyPotato.sln
+      args:
+        chdir: /opt/juicy-potato
+
+    - name: Clone RoguePotato repository
+      git:
+        repo: https://github.com/antonioCoco/RoguePotato.git
+        dest: /opt/RoguePotato
+
+    - name: Build RoguePotato
+      command: xbuild /opt/RoguePotato/RoguePotato.sln
+      args:
+        chdir: /opt/RoguePotato
+
+    - name: Clone PowerSploit repository
+      git:
+        repo: https://github.com/PowerShellMafia/PowerSploit.git
+        dest: /opt/PowerSploit
+
+    - name: Build PowerSploit
+      command: xbuild /opt/PowerSpoilt/PowerSploit.sln
