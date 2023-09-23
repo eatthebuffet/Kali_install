@@ -1,0 +1,35 @@
+---
+- name: Prompt for 'apt install tmux -y'
+  hosts: localhost
+  become: yes  # Use 'become' to run commands with sudo
+  gather_facts: no  # Disable fact gathering to speed up playbook execution
+
+  tasks:
+    - name: Prompt user for input
+      pause:
+        prompt: "Do you want to run 'apt install tmux -y'? (yes/no): "
+      register: user_input
+
+    - name: Convert user input to lowercase
+      set_fact:
+        choice_lc: "{{ user_input.user_input | lower }}"
+
+    - name: Check user choice
+      block:
+        - name: Skip installation
+          debug:
+            msg: "Skipping the install."
+          when: choice_lc == 'no'
+
+        - name: Run apt update and upgrade
+          apt:
+            name: tmux
+            state: latest
+            update_cache: yes
+          when: choice_lc == 'yes'
+
+        - name: Invalid input
+          debug:
+            msg: "Invalid input. Please enter 'yes' or 'no'."
+          when: choice_lc != 'yes' and choice_lc != 'no'
+
