@@ -39,4 +39,5 @@
           - kali-linux-core
           - kali-linux-firmware
           - kali-desktop-xfce
-          - kali-linu
+          - kali-linux
+          - vim
