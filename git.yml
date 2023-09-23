@@ -47,6 +47,16 @@
       git:
         repo: https://github.com/nicocha30/ligolo-ng.git
         dest: /opt/ligolo-ng
+        
+    - name: Build Ligolo-ng agent
+      command: go build -o /opt/ligolo-ng/agent /opt/ligolo-ng/cmd/agent/main.go
+      args:
+        chdir: /opt/ligolo-ng
+
+    - name: Build Ligolo-ng proxy
+      command: go build -o /opt/ligolo-ng/proxy /opt/ligolo-ng/cmd/proxy/main.go
+      args:
+        chdir: /opt/ligolo-ng
 
     - name: Clone Linikatz repository
       git:
