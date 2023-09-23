@@ -1,7 +1,9 @@
 ---
-- name: Clone and Build GitHub Repositories
-  hosts: localhost
+- name: Clone and Build Git Repositories in /opt/
+  hosts: localhost  # You can change this to the appropriate host(s)
   become: yes  # Use 'become' to run commands with sudo
+  gather_facts: no  # Disable fact gathering to speed up playbook execution
+
   tasks:
     - name: Clone Certify repository
       git:
@@ -74,7 +76,7 @@
         repo: https://github.com/CiscoCXSecurity/linikatz.git
         dest: /opt/linikatz
 
-    - name: Clone Logrotten repository
+    - name: Clone logrotten repository
       git:
         repo: https://github.com/whotwagner/logrotten.git
         dest: /opt/logrotten
@@ -159,12 +161,12 @@
       args:
         chdir: /opt/Inveigh
 
-    - name: Clone Juicy-Potato repository
+    - name: Clone juicy-potato repository
       git:
         repo: https://github.com/ohpe/juicy-potato.git
         dest: /opt/juicy-potato
 
-    - name: Build Juicy-Potato
+    - name: Build juicy-potato
       command: xbuild /opt/juicy-potato/JuicyPotato/JuicyPotato.sln
       args:
         chdir: /opt/juicy-potato
@@ -185,4 +187,46 @@
         dest: /opt/PowerSploit
 
     - name: Build PowerSploit
-      command: xbuild /opt/PowerSpoilt/PowerSploit.sln
+      command: xbuild /opt/PowerSploit/PowerSploit.sln
+      args:
+        chdir: /opt/PowerSploit
+
+    - name: Clone PrintSpoofer repository
+      git:
+        repo: https://github.com/itm4n/PrintSpoofer.git
+        dest: /opt/PrintSpoofer
+
+    - name: Build PrintSpoofer
+      command: xbuild /opt/PrintSpoofer/PrintSpoofer.sln
+      args:
+        chdir: /opt/PrintSpoofer
+
+    - name: Clone Rubeus repository
+      git:
+        repo: https://github.com/GhostPack/Rubeus.git
+        dest: /opt/Rubeus
+
+    - name: Build SessionGopher
+      command: go build -o /opt/Rubeus/SessionGopher /opt/Rubeus/SessionGopher/main.go
+      args:
+        chdir: /opt/Rubeus/SessionGopher
+
+    - name: Clone Snaffler repository
+      git:
+        repo: https://github.com/SnaffCon/Snaffler.git
+        dest: /opt/Snaffler
+
+    - name: Build UltraSnaffler
+      command: xbuild /opt/Snaffler/UltraSnaffler.sln
+      args:
+        chdir: /opt/Snaffler
+
+    - name: Build Snaffler
+      command: xbuild /opt/Snaffler/Snaffler.sln
+      args:
+        chdir: /opt/Snaffler
+
+    - name: Clone nc.exe repository
+      git:
+        repo: https://github.com/int0x33/nc.exe.git
+        dest: /opt/nc.exe
