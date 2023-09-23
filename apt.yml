@@ -1,0 +1,42 @@
+---
+- name: Install Packages on Debian/Ubuntu
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+      tags: update
+
+    - name: Install packages
+      apt:
+        name:
+          - feroxbuster
+          - gobuster
+          - peass
+          - jq
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+          - eyewitness
+          - gdb
+          - cupp
+          - pipx
+          - evolution
+          - dbeaver
+          - xxd
+          - chromium
+          - xclip
+          - neo4j
+          - bloodhound
+          - hexedit
+          - golang-go
+          - kleopatra
+          - rlwrap
+          - open-vm-tools-desktop
+          - kali-linux-core
+          - kali-linux-firmware
+          - kali-desktop-xfce
+          - kali-linu
