@@ -33,15 +33,10 @@
         repo: https://github.com/login-securite/DonPAPI.git
         dest: /opt/DonPAPI
 
-    - name: Clone EyeWitness repository
+    - name: Clone gowitness repository
       git:
-        repo: https://github.com/RedSiege/EyeWitness.git
-        dest: /opt/EyeWitness
-
-    - name: Clone Aquatone repository
-      git:
-        repo: https://github.com/michenriksen/aquatone.git
-        dest: /opt/aquatone
+        repo: https://github.com/sensepost/gowitness
+        dest: /opt/gowitness
 
     - name: Clone Ligolo-ng repository
       git:
