@@ -168,6 +168,11 @@
         repo: https://github.com/int0x33/nc.exe.git
         dest: /opt/nc.exe
 
+    - name: Clone eyeballer repository
+      git:
+        repo: https://github.com/BishopFox/eyeballer.git
+        dest: /opt/eyeballer
+
     - name: Copy files from foo to bar
         copy: remote_src=True src=./Kali_install/windows/ dest=/opt/windows/
     - name: Remove old files foo
