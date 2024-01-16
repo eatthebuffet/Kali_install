@@ -7,6 +7,7 @@ Run these commands after cloing the repo:
 ```
 sudo apt upgrade && sudo apt update
 apt install ansible
+sudo chown -R kali /opt/
 ansible-galaxy install gantsign.visual-studio-code
 ansible-galaxy install -r requirements.yml
 ansible-playbook main.yml
