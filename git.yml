@@ -3,6 +3,10 @@
   hosts: localhost 
 
   tasks:
+    - name: Set safe.directory exception for Certify repository
+      command: git config --global --add safe.directory /opt/Certify
+      args:
+        creates: /opt/Certify/.gitconfig
     - name: Clone Certify repository
       git:
         repo: https://github.com/GhostPack/Certify.git
@@ -172,16 +176,12 @@
       git:
         repo: https://github.com/BishopFox/eyeballer.git
         dest: /opt/eyeballer
-
-    - name: Copy files from foo to bar
-        copy:
-          remote_src: True
-          src: ./Kali_install/windows/
-          dest: /opt/windows/
-
-    - name: Remove old files
-       file:
-         path: /opt/windows/
-         state: absent
-
-        
+    - name: copy
+      copy:
+        remote_src: True
+        src: /home/kali/Kali_install/windows/
+        dest: /opt/windows
+    - name: 
+      file:
+        path: /home/kali/Kali_install/windows/
+        state: absent
