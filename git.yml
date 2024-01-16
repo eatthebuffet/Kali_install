@@ -174,7 +174,14 @@
         dest: /opt/eyeballer
 
     - name: Copy files from foo to bar
-        copy: remote_src=True src=./Kali_install/windows/ dest=/opt/windows/
-    - name: Remove old files foo
-        file: path=./Kali_Install/windows/ state=absent
+        copy:
+          remote_src: True
+          src: ./Kali_install/windows/
+          dest: /opt/windows/
+
+    - name: Remove old files
+       file:
+         path: /opt/windows/
+         state: absent
+
         
