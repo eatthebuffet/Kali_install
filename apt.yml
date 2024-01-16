@@ -11,6 +11,7 @@
     - name: Install packages
       apt:
         name:
+          - golang-go
           - feroxbuster
           - gobuster
           - peass
@@ -39,5 +40,4 @@
           - kali-linux-core
           - kali-linux-firmware
           - kali-desktop-xfce
-          - kali-linux
           - vim
